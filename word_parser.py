@@ -104,7 +104,7 @@ class WordParser():
             if strokes_link:
                 image_filename = self.get_image_filename(strokes_link)
                 image_path = '{}/{}'.format(self.media_path, image_filename)
-                image_tag = '<img src="{}">'.format(image_filename)
+                image_tag = '<img src="' + os.path.abspath(os.path.curdir).strip(' ') + '/output/collection.media/{}">'.format(image_filename)
                 image_link = self.image_base + image_filename
 
                 self.ui.print_image_download(char, image_filename)
@@ -160,7 +160,7 @@ class WordParser():
 
                 audio_filename = audio_link.split('/')[-1]
                 audio_path = '{}/{}'.format(self.media_path, audio_filename)
-                audio_tag = '[sound:{}]'.format(audio_filename)
+                audio_tag = '[sound:' + os.path.abspath(os.path.curdir).strip(' ') + '/output/collection.media/{}]'.format(audio_filename)
 
                 self.ui.print_audio_download(hanzi, audio_filename)
                 urlretrieve(audio_link, audio_path)
